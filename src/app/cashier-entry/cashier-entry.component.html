@@ -1,0 +1,39 @@
+<h1>New Transaction</h1>
+<div>
+    <form [formGroup]="transactionForm" (ngSubmit)="submit(transactionForm)" novalidate class="login-form">
+        <div class="row">
+        <mat-form-field [formGroup]="transactionForm">
+            <mat-label class="label-form" for="type">Transaction Type</mat-label>
+      
+            <mat-select formControlName="type" id="type">
+                <mat-option *ngFor="let option of types" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="row">
+        <mat-form-field [formGroup]="transactionForm">
+            <mat-label for="amount">Amount </mat-label>
+      
+            <input matInput  formControlName="amount" id="amount"
+             type="number">
+        
+        </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field [formGroup]="transactionForm">
+                <mat-label for="description">Description </mat-label>
+          
+                <textarea matInput formControlName="description"
+                id="decription" [type]="text"></textarea>
+            
+            </mat-form-field>
+            </div>
+            <div class="btns">
+                <button class="btn" type="submit">Save</button>
+                <button class="del-action-btn" (click)="cancel()">Cancel</button>
+            </div>
+    </form>
+</div>

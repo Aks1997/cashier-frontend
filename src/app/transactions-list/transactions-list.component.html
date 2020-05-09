@@ -1,0 +1,23 @@
+<table id="transactions">
+    <tr>
+        <th>Office Transactions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="add-btn" (click)="openTransactionPage()">+Add Transaction</th>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Credit</th>
+        <th>Debit</th>
+        <th>Running Balance</th>
+    </tr>
+    <tr *ngFor="let transaction of transactions">
+        <td>{{transaction.date | date: 'MM/dd/yyyy'}}</td>
+        <td>{{transaction.description}}</td>
+        <td><span *ngIf="transaction.type=='Credit'">{{transaction.amount}}</span></td>
+        <td><span *ngIf="transaction.type=='Debit'">{{transaction.amount}}</span></td>
+        <td>{{transaction.balance}}</td>
+    </tr>
+</table>
